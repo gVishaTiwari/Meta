@@ -7,12 +7,14 @@ import Testimonial from './pages/Testimonial';
 import Team from './pages/Team';
 import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
+import TextImage from './pages/TextImage';
 
 function App() {
   return (
     <div className="App">
     <MainHeader/>
     <Home/>
+    <TextImage/>
     <About/>
     <Team/>
     <Testimonial/>

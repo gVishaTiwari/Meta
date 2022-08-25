@@ -2,54 +2,46 @@ import React, { useState } from "react";
 import Carousel from "react-elastic-carousel";
 import styled from "styled-components";
 import Item from "./Item";
+import {imgdata} from './HomeData';
+import './Home.css';
+import { FiArrowLeftCircle,FiArrowRightCircle } from "react-icons/fi";
 
 
 const Home=()=> {
   
-  const items = [
-    {
-      id:'1',
-      url:"https://img.freepik.com/free-vector/realistic-3d-podium-background_23-2149166921.jpg?w=900&t=st=1661321796~exp=1661322396~hmac=71a42bfbb78a499c2e8ec7475c229fc3b8eee691bf1fd51dce3b5db163bc31d1"
-    
-    },
-    {
-           id:'2',
-           url:"https://img.freepik.com/premium-vector/realistic-3d-podium-with-lights_23-2149088231.jpg"
-    },
-    {
-        id:'3',
-        url:"https://img.freepik.com/premium-vector/realistic-podium-background_23-2149146428.jpg"
-    },
-    {
-      id:'4',
-      url:"https://img.freepik.com/premium-vector/gradient-podium-design-3d-rendering_23-2149083182.jpg"
+  const [currnet,setCurrent] =useState(0);
+  const length = imgdata.length;
 
-    },
-    {
-         id:'5',
-         url:"https://img.freepik.com/free-vector/podium-with-lights-futuristic-background_23-2148729550.jpg?size=626&ext=jpg"
-    },
-    {
-        id:'6',
-        url:"https://img.freepik.com/premium-vector/3d-podium-rendering-with-color-year-2022_23-2149217376.jpg"
-    },
-  ]
+   const prevSlide =()=>{
+          setCurrent(currnet===0?length-1:currnet-1)
+   }
+
+   const nextSlide =()=>{
+    setCurrent(currnet===length-1?0:currnet+1)
+   }
   return (
    
+     <>
+      <section className="slider">
+        <FiArrowLeftCircle className="left-arrow" onClick={prevSlide}/>
+        <FiArrowRightCircle className="right-arrow" onClick={nextSlide}/>
+        {imgdata.map((item,index)=>{
+
+          return (
+              <div className={index===currnet?'slide active':'slide'} key={index}>
+                {index===currnet&&(<img src={item.url} alt="missing" className="image"/>)}
+              </div>
+          )
+        
+        })}
+      </section>
+
      
-      <Div>
-        <Carousel >
-          {items.map((item) => (
-         <Item key={item}><img src={item.url} alt='missing'/></Item>)
-          )}
-        </Carousel>
-      </Div>
+      </>
    
   );
 }
 
-const Div = styled.div`
-height:100%,
-width:100%
-`;
+
+
 export default Home;
