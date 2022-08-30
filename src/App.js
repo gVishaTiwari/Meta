@@ -8,6 +8,7 @@ import Team from './pages/Team';
 import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
 import TextImage from './pages/TextImage';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -20,8 +21,8 @@ function App() {
     <Testimonial/>
     <Pricing/>
     <Contact/>
-
-    </div>
+    <Footer/>   
+     </div>
   );
 }
 

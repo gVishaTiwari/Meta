@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import { FiArrowLeftCircle,FiArrowRightCircle } from "react-icons/fi";
 import { textdata } from "./HomeData";
-import './Home';
+import './Home.css';
 import Carousel from "react-elastic-carousel";
 import Item from './Item';
 
@@ -22,7 +22,7 @@ const TextImage = ()=>{
         <div className="text-slider">
       {/* <FiArrowLeftCircle className="left-arrow" onClick={prevSlide}/>
         <FiArrowRightCircle className="right-arrow" onClick={nextSlide}/> */}
-        <Carousel itemsToShow={4} itemsToScroll={2}>
+        <Carousel styles={{background:'none'}} itemsToShow={4} itemsToScroll={2}>
         {textdata.map((item,index)=>{
 
           return (
@@ -37,6 +37,7 @@ const TextImage = ()=>{
       </div>
     )
 }
+
 
 
 export default TextImage;

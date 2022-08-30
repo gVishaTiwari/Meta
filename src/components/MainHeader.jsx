@@ -16,7 +16,7 @@ const MainHeader =()=>{
              <ul>
               <li>
                 <NavLink activeClassName={classes.active}
-                 to='/'>Home</NavLink>
+                 to='/' color='black'>Home</NavLink>
               </li>
               <li>
                 <NavLink 

@@ -4,7 +4,8 @@ import styled from "styled-components";
 import Item from "./Item";
 import {imgdata} from './HomeData';
 import './Home.css';
-import { FiArrowLeftCircle,FiArrowRightCircle } from "react-icons/fi";
+import { FiChevronLeft,FiChevronRight } from "react-icons/fi";
+import HomeText from "./HomeText";
 
 
 const Home=()=> {
@@ -21,23 +22,31 @@ const Home=()=> {
    }
   return (
    
-     <>
-      <section className="slider">
-        <FiArrowLeftCircle className="left-arrow" onClick={prevSlide}/>
-        <FiArrowRightCircle className="right-arrow" onClick={nextSlide}/>
+    
+      <div className="home">
+                <div className="hide">
+        <FiChevronLeft className="left-arrow" color="black" onClick={prevSlide} size='50px'/>
+        <FiChevronRight className="right-arrow" color="black" onClick={nextSlide} size='50px'/>
+      
+       
+        </div>
         {imgdata.map((item,index)=>{
 
           return (
+            
               <div className={index===currnet?'slide active':'slide'} key={index}>
+                
                 {index===currnet&&(<img src={item.url} alt="missing" className="image"/>)}
+              
               </div>
           )
         
         })}
-      </section>
+      
+      
 
      
-      </>
+      </div>
    
   );
 }
